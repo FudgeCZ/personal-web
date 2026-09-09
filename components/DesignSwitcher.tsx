@@ -4,6 +4,12 @@ import { useEffect, useRef, useState } from "react";
 
 const DESIGNS = [
   {
+    id: "mocha",
+    name: "Mokka",
+    desc: "Tmavý mix Aurory a Čokolády",
+    dots: ["#ec9d4e", "#7a4a26", "#130c06"],
+  },
+  {
     id: "aurora",
     name: "Aurora",
     desc: "Tmavá, gradienty a sklo",

@@ -31,7 +31,7 @@ export default function RootLayout({
   return (
     <html
       lang="cs"
-      data-design="aurora"
+      data-design="mocha"
       className={`${inter.variable} ${grotesk.variable} ${nunito.variable} ${playfair.variable} ${jetbrains.variable}`}
     >
       <head>

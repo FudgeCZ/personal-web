@@ -15,14 +15,15 @@ Požadavky: Node.js (doporučena aktuální LTS/novější).
 
 ## Přepínač designů
 
-Web má **4 kompletní designy** — liší se paletou, písmy i rozložením. Přepínač je fixní tlačítko vpravo dole (🎨). Zvolený design se ukládá do `localStorage` a přežije reload.
+Web má **5 kompletních designů** — liší se paletou, písmy i rozložením. Přepínač je fixní tlačítko vpravo dole (🎨). Zvolený design se ukládá do `localStorage` a přežije reload.
 
-| Design     | Charakter                                  |
-| ---------- | ------------------------------------------ |
-| **Aurora** | Tmavá, gradienty, skleněné karty (výchozí) |
-| **Čokoláda** | Teplé barvy v brandu ChocoModrinth       |
-| **Minimal**  | Světlý editorial se serifovými nadpisy   |
-| **Terminál** | Neonová zelená, monospace, scanlines     |
+| Design     | Charakter                                            |
+| ---------- | ---------------------------------------------------- |
+| **Mokka**  | Tmavý mix Aurory a Čokolády — karamel & gradienty (výchozí) |
+| **Aurora** | Tmavá, violet-cyan gradienty, skleněné karty         |
+| **Čokoláda** | Teplé světlé barvy v brandu ChocoModrinthu         |
+| **Minimal**  | Světlý editorial se serifovými nadpisy             |
+| **Terminál** | Neonová zelená, monospace, scanlines               |
 
 ### Jak zafixovat finální design
 
