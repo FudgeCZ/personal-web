@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
+import Reveal from "@/components/Reveal";
 
 const SHOTS = [
   {
@@ -53,7 +54,7 @@ export default function Gallery() {
       <div className="container">
         <p className="kicker">Galerie</p>
         <h2 className="section-title">ChocoModrinth v akci</h2>
-        <div className="gallery">
+        <Reveal className="gallery">
           {SHOTS.map((shot, i) => (
             <figure className="gallery-item" key={shot.src}>
               <button
@@ -73,7 +74,7 @@ export default function Gallery() {
               <figcaption>{shot.caption}</figcaption>
             </figure>
           ))}
-        </div>
+        </Reveal>
       </div>
 
       {selected !== null && (

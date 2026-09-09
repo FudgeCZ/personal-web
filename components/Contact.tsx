@@ -1,3 +1,5 @@
+import Reveal from "@/components/Reveal";
+
 const LINKS = [
   {
     icon: "🐙",
@@ -25,7 +27,7 @@ export default function Contact() {
       <div className="container">
         <p className="kicker">Kontakt</p>
         <h2 className="section-title">Ozvěte se</h2>
-        <div className="contact-grid">
+        <Reveal className="contact-grid">
           {LINKS.map((l) => (
             <a
               className="contact-card card"
@@ -44,7 +46,7 @@ export default function Contact() {
               </span>
             </a>
           ))}
-        </div>
+        </Reveal>
       </div>
     </section>
   );

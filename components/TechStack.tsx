@@ -1,3 +1,5 @@
+import Reveal from "@/components/Reveal";
+
 const STACK: { category: string; tech: string }[] = [
   { category: "Jazyky", tech: "Python, C/C++, Java" },
   {
@@ -21,6 +23,7 @@ export default function TechStack() {
         <p className="kicker">Technický stack</p>
         <h2 className="section-title">S čím pracuji</h2>
         <div className="table-wrap card">
+          <Reveal>
           <table className="stack-table">
             <tbody>
               {STACK.map((row) => (
@@ -31,6 +34,7 @@ export default function TechStack() {
               ))}
             </tbody>
           </table>
+          </Reveal>
         </div>
       </div>
     </section>

@@ -1,3 +1,5 @@
+import Reveal from "@/components/Reveal";
+
 const RESULTS = [
   {
     year: "2023",
@@ -19,7 +21,7 @@ export default function Achievements() {
       <div className="container">
         <p className="kicker">Soutěže &amp; ocenění</p>
         <h2 className="section-title">Robosoutěž FEL ČVUT</h2>
-        <div className="ach-grid">
+        <Reveal className="ach-grid">
           {RESULTS.map((r) => (
             <article className="ach-card card" key={r.year}>
               <span className="ach-year">{r.year}</span>
@@ -28,7 +30,7 @@ export default function Achievements() {
               <p className="ach-team">{r.team}</p>
             </article>
           ))}
-        </div>
+        </Reveal>
       </div>
     </section>
   );

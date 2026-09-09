@@ -7,6 +7,9 @@ import {
   JetBrains_Mono,
 } from "next/font/google";
 import "./globals.css";
+import SiteHeader from "@/components/SiteHeader";
+import Footer from "@/components/Footer";
+import DesignSwitcher from "@/components/DesignSwitcher";
 
 const inter = Inter({ subsets: ["latin", "latin-ext"], variable: "--font-inter" });
 const grotesk = Space_Grotesk({ subsets: ["latin", "latin-ext"], variable: "--font-grotesk" });
@@ -34,7 +37,12 @@ export default function RootLayout({
       <head>
         <script dangerouslySetInnerHTML={{ __html: noFlashScript }} />
       </head>
-      <body>{children}</body>
+      <body>
+        <SiteHeader />
+        {children}
+        <Footer />
+        <DesignSwitcher />
+      </body>
     </html>
   );
 }
