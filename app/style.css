@@ -1,0 +1,143 @@
+:root {
+  --pozadi: rgb(33, 46, 59);
+  --text: antiquewhite;
+
+  --header-barva: chocolate;
+
+  --karty-border: rgba(0, 0, 0, 0.35);
+  --karta-choco-pozadi: rgba(226, 121, 45, 0.45);
+  --karta-dalsi-pozadi: rgba(78, 78, 78, 0.45);
+
+  --jmeno-barva: rgb(233, 179, 109);
+  --h2-barva: rgb(240, 200, 148);
+  --podtitul-barva: rgb(245, 220, 188);
+  --seznam-barva: rgb(255, 233, 204);
+}
+[data-theme="light"] {
+  --pozadi: rgb(235, 221, 204);
+  --text: rgb(107, 82, 54);
+
+  --jmeno-barva: rgb(184, 109, 12);
+  --h2-barva: rgb(211, 140, 47);
+  --podtitul-barva: rgb(131, 96, 50);
+  --seznam-barva: rgb(117, 90, 54);
+
+  --karty-border: rgba(0, 0, 0, 0.65);
+  --karta-choco-pozadi: rgba(207, 108, 36, 0.5);
+  --karta-dalsi-pozadi: rgba(78, 78, 78, 0.55);
+}
+body {
+  background-color: var(--pozadi);
+  color: var(--text);
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+h1 {
+  color: var(--jmeno-barva);
+  font-size: 40px;
+}
+h2 {
+  color: var(--h2-barva);
+  font-size: 26px;
+}
+.podtitul {
+  color: var(--podtitul-barva);
+  font-size: 20px;
+  font-weight: bold;
+}
+.seznam {
+  color: var(--seznam-barva);
+  font-size: 16px;
+}
+
+.karty {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+@media (max-width: 800px) {
+  .karty {
+    grid-template-columns: 1fr;
+  }
+}
+.karta {
+  padding: 15px;
+  border-radius: 15px;
+  border: 3px solid var(--karty-border);
+}
+.karta-choco {
+  background-color: var(--karta-choco-pozadi);
+}
+.karta-nic {
+  background-color: var(--karta-dalsi-pozadi);
+}
+header a {
+  color: var(--header-barva);
+  text-decoration: none;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+section {
+  padding: 24px;
+}
+footer {
+  font-family: "Courier New", Courier, monospace;
+  font-size: small;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 24px;
+}
+nav {
+  display: flex;
+  gap: 30px;
+}
+#domu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 70%;
+  margin: 40px auto;
+}
+
+.logo{
+  transition: color 0.3s;
+}
+.logo:hover{
+  color: rgb(236, 215, 183);
+}
+@keyframes nabeh {
+  from {
+    opacity: 0;          /* neviditelný */
+    translate: -30px -10px;   /* posunutý dolů (translate = samostatná vlastnost posunu) */
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+#domu h1 {
+  animation: nabeh 0.8s ease both;
+  animation-delay: 0.05s;
+}
+#domu h2 {
+  animation: nabeh 0.8s ease both;
+  animation-delay: 0.1s;
+}
+#domu .podtitul {
+  animation: nabeh 0.8s ease both;
+  animation-delay: 0.15s;
+}
+#domu .seznam {
+  animation: nabeh 0.8s ease both;
+  animation-delay: 0.2s;
+}
+.reveal {
+  opacity: 0;
+  translate: -20px 10px;
+  transition: opacity 0.6s, translate 0.8s;
+}
+.reveal.viditelna {
+  opacity: 1;
+  translate: 0 0;
+}
