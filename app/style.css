@@ -96,20 +96,20 @@ nav {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  max-width: 70%;
+  max-width: 800px;
   margin: 40px auto;
 }
 
-.logo{
+.logo {
   transition: color 0.3s;
 }
-.logo:hover{
+.logo:hover {
   color: rgb(236, 215, 183);
 }
 @keyframes nabeh {
   from {
-    opacity: 0;          /* neviditelný */
-    translate: -30px -10px;   /* posunutý dolů (translate = samostatná vlastnost posunu) */
+    opacity: 0; /* neviditelný */
+    translate: -30px -10px; /* posunutý dolů (translate = samostatná vlastnost posunu) */
   }
   to {
     opacity: 1;
@@ -135,9 +135,53 @@ nav {
 .reveal {
   opacity: 0;
   translate: -20px 10px;
-  transition: opacity 0.6s, translate 0.8s;
+  transition:
+    opacity 0.6s,
+    translate 0.8s;
 }
 .reveal.viditelna {
   opacity: 1;
   translate: 0 0;
+}
+header button {
+  padding: 8px 10px;
+  border-radius: 15px;
+  border: 1px solid rgb(255, 157, 59);
+  background-color: transparent;
+  color: rgb(235, 160, 86);
+  cursor: pointer; /* ať je zřejmé, že je klikací */
+  transition:
+    background-color 0.3s,
+    color 0.3s; /* tohle už znáš z kroku 14 */
+}
+
+header button:hover {
+  background-color: rgb(238, 173, 106);
+  color: rgb(33, 46, 59); /* převrácené barvy = klasický hover efekt */
+  border: 1px solid rgb(241, 142, 42);
+}
+
+body,
+h1,
+h2,
+h3,
+.podtitul,
+.seznam,
+header,
+nav a,
+.karta,
+header button {
+  transition:
+    background-color 0.4s,
+    color 0.4s,
+    border-color 0.4s;
+}
+.ikona-mesic {
+  display: none;
+}
+[data-theme="light"] .ikona-mesic {
+  display: block;
+}
+[data-theme="light"] .ikona-slunce {
+  display: none;
 }
