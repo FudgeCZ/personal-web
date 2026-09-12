@@ -3,6 +3,7 @@
   --text: antiquewhite;
 
   --header-barva: chocolate;
+  --header-pozadi: rgba(37, 35, 30, 0.6);
 
   --karty-border: rgba(0, 0, 0, 0.35);
   --karta-choco-pozadi: rgba(226, 121, 45, 0.45);
@@ -16,6 +17,8 @@
 [data-theme="light"] {
   --pozadi: rgb(235, 221, 204);
   --text: rgb(107, 82, 54);
+
+  --header-pozadi: rgba(202, 182, 143, 0.6);
 
   --jmeno-barva: rgb(184, 109, 12);
   --h2-barva: rgb(211, 140, 47);
@@ -87,6 +90,14 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 14px 24px;
+  position: sticky;
+  top: 12px;
+  border-radius: 999px;
+  background-color: var(--header-pozadi);
+  backdrop-filter: blur(6px);
+  z-index: 1;
+  max-width: 800px;
+  margin: 12px auto;
 }
 nav {
   display: flex;
@@ -98,10 +109,12 @@ nav {
   gap: 8px;
   max-width: 800px;
   margin: 40px auto;
+  scroll-margin-top: 80px;
 }
 
 .logo {
   transition: color 0.3s;
+  font-size: 18px;
 }
 .logo:hover {
   color: rgb(236, 215, 183);
@@ -146,9 +159,9 @@ nav {
 header button {
   padding: 8px 10px;
   border-radius: 15px;
-  border: 1px solid rgb(255, 157, 59);
+  border: 1px solid rgb(231, 141, 50);
   background-color: transparent;
-  color: rgb(235, 160, 86);
+  color: rgb(207, 134, 60);
   cursor: pointer; /* ať je zřejmé, že je klikací */
   transition:
     background-color 0.3s,
