@@ -4,10 +4,12 @@
 
   --header-barva: chocolate;
   --header-pozadi: rgba(37, 35, 30, 0.6);
+  --header-hover: rgb(236, 215, 183);
 
   --karty-border: rgba(0, 0, 0, 0.35);
-  --karta-choco-pozadi: rgba(226, 121, 45, 0.45);
-  --karta-dalsi-pozadi: rgba(78, 78, 78, 0.45);
+  --karta-choco-pozadi: rgb(117, 60, 19);
+  --karta-dalsi-pozadi: rgb(78, 78, 78);
+  --karta-robo-pozadi: rgb(148, 79, 30);
 
   --jmeno-barva: rgb(233, 179, 109);
   --h2-barva: rgb(240, 200, 148);
@@ -19,6 +21,7 @@
   --text: rgb(107, 82, 54);
 
   --header-pozadi: rgba(202, 182, 143, 0.6);
+  --header-hover: rgb(95, 60, 8);
 
   --jmeno-barva: rgb(184, 109, 12);
   --h2-barva: rgb(211, 140, 47);
@@ -26,8 +29,12 @@
   --seznam-barva: rgb(117, 90, 54);
 
   --karty-border: rgba(0, 0, 0, 0.65);
-  --karta-choco-pozadi: rgba(207, 108, 36, 0.5);
-  --karta-dalsi-pozadi: rgba(78, 78, 78, 0.55);
+  --karta-choco-pozadi: rgb(148, 79, 30);
+  --karta-choco-text: rgb(255, 190, 106);
+  --karta-robo-pozadi: rgb(148, 79, 30);
+  --karta-robo-text: rgb(255, 190, 106);
+  --karta-dalsi-pozadi: rgb(78, 78, 78);
+  --karta-nic-text: rgb(207, 184, 141);
 }
 body {
   background-color: var(--pozadi);
@@ -53,33 +60,103 @@ h2 {
 }
 
 .karty {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 25px;
+  position: relative; /* kotva — vůči ní se karty budou umisťovat */
+  max-width: 350px;
+  height: 240px; /* absolute děti výšku rodiče neovlivní, musíme ji dát ručně */
+  margin: 30px auto 0;
+  perspective: 1000px; /* oko, znáš z E3 */
 }
-@media (max-width: 800px) {
-  .karty {
-    grid-template-columns: 1fr;
-  }
-}
+
 .karta {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   padding: 15px;
   border-radius: 15px;
   border: 3px solid var(--karty-border);
+  transition:
+    transform 0.6s,
+    background-color 0.4s,
+    color 0.4s,
+    border-color 0.4s;
 }
 .karta-choco {
   background-color: var(--karta-choco-pozadi);
+  color: var(--karta-choco-text);
+}
+.karta-robo {
+  background-color: var(--karta-robo-pozadi);
+  color: var(--karta-robo-text);
 }
 .karta-nic {
   background-color: var(--karta-dalsi-pozadi);
+  color: var(--karta-nic-text);
 }
+
+.pozice-vpredu {
+  transform: none;
+  z-index: 2;
+}
+.pozice-vlevo {
+  transform: translateX(-92%) rotateY(35deg) rotateX(15deg);
+  scale: 0.85;
+  z-index: 1;
+}
+.pozice-vpravo {
+  transform: translateX(92%) rotateY(-35deg) rotateX(15deg);
+  scale: 0.85;
+  z-index: 1;
+}
+.pozice-vlevo,
+.pozice-vpravo {
+  cursor: pointer;
+}
+.pozice-vlevo:hover {
+  transform: translateX(-92%) rotateY(35deg) rotateX(5deg);
+  scale: 0.9;
+}
+.pozice-vpravo:hover {
+  transform: translateX(92%) rotateY(-35deg) rotateX(5deg);
+  scale: 0.9;
+}
+
+@media (max-width: 950px) {
+  .karta {
+    position: static;
+    transform: translateX(0) rotateY(0) rotateX(0);
+    scale: 1;
+    max-width: 800px;
+  }
+  .karty {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .pozice-vlevo,
+  .pozice-vpravo {
+    cursor: auto;
+  }
+  .pozice-vlevo:hover,
+  .pozice-vpravo:hover {
+    transform: none;
+    scale: 1;
+  }
+}
+
 header a {
   color: var(--header-barva);
   text-decoration: none;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+header a:hover {
+  color: var(--header-hover);
+}
 section {
   padding: 24px;
+  scroll-margin-top: 80px;
 }
 footer {
   font-family: "Courier New", Courier, monospace;
@@ -96,12 +173,39 @@ header {
   background-color: var(--header-pozadi);
   backdrop-filter: blur(6px);
   z-index: 1;
-  max-width: 800px;
+  max-width: 1000px;
   margin: 12px auto;
+  white-space: nowrap;
+  border: 1px solid rgb(196, 153, 111);
 }
 nav {
   display: flex;
   gap: 30px;
+}
+.logo {
+  transition: color 0.3s;
+  font-size: 18px;
+}
+.logo:hover {
+  color: var(--header-hover);
+  background-color: rgba(255, 145, 20, 0.1);
+}
+@media (max-width: 550px) {
+  header {
+    flex-direction: column;
+    gap: 12px;
+    border-radius: 50px;
+  }
+  .logo,
+  nav a {
+    white-space: nowrap;
+    border-radius: 999px;
+    border: 1px solid rgba(180, 115, 49, 0.5);
+    padding: 10px 20px;
+  }
+  nav {
+    gap: 40px;
+  }
 }
 #domu {
   display: flex;
@@ -109,16 +213,8 @@ nav {
   gap: 8px;
   max-width: 800px;
   margin: 40px auto;
-  scroll-margin-top: 80px;
 }
 
-.logo {
-  transition: color 0.3s;
-  font-size: 18px;
-}
-.logo:hover {
-  color: rgb(236, 215, 183);
-}
 @keyframes nabeh {
   from {
     opacity: 0; /* neviditelný */
@@ -182,7 +278,6 @@ h3,
 .seznam,
 header,
 nav a,
-.karta,
 header button {
   transition:
     background-color 0.4s,

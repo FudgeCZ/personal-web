@@ -1,7 +1,22 @@
+"use client";
 import Link from "next/link";
 import Reveal from "./Reveal";
+import { useState } from "react";
 
 export default function Projects() {
+  const [aktivni, setAktivni] = useState(0);
+  function poziceTrida(index: number) {
+    const posun = (index - aktivni + 3) % 3;
+    if (posun === 0) {
+      return "pozice-vpredu";
+    }
+    if (posun === 1) {
+      return "pozice-vlevo";
+    }
+    if (posun === 2) {
+      return "pozice-vpravo";
+    }
+  }
   return (
     <section id="projekty">
       <Reveal>
@@ -9,7 +24,10 @@ export default function Projects() {
       </Reveal>
       <Reveal>
         <div className="karty">
-          <div className="karta karta-choco">
+          <div
+            className={`karta karta-choco ${poziceTrida(0)}`}
+            onClick={() => setAktivni(0)}
+          >
             <h3>ChocoModrinth</h3>
             <p>Fork open-source Modrinth app</p>
             <a
@@ -20,10 +38,20 @@ export default function Projects() {
             </a>
             <Link href="/projekt"> Detail projektu</Link>
           </div>
-          <div className="karta karta-nic">
+          <div
+            className={`karta karta-robo ${poziceTrida(1)}`}
+            onClick={() => setAktivni(1)}
+          >
+            <h3>Robosoutěž</h3>
+            <p>9. místo v celostátním finále (2023), 17. místo (2022)</p>
+          </div>
+          <div
+            className={`karta karta-nic ${poziceTrida(2)}`}
+            onClick={() => setAktivni(2)}
+          >
             <h3>A další...</h3>
             <p>Stále dělám i více projektů</p>
-            <a>Nic</a>
+            <a href="https://github.com/FudgeCZ">Další na GitHubu</a>
           </div>
         </div>
       </Reveal>
