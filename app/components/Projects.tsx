@@ -30,13 +30,15 @@ export default function Projects() {
           >
             <h3>ChocoModrinth</h3>
             <p>Fork open-source Modrinth app</p>
-            <a
-              className="choco-odkaz"
-              href="https://github.com/FudgeCZ/choco-modrinth-app"
-            >
-              Github
-            </a>
-            <Link href="/projekt"> Detail projektu</Link>
+            <div className="karta-akce">
+              <a
+                className="choco-odkaz"
+                href="https://github.com/FudgeCZ/choco-modrinth-app"
+              >
+                Github
+              </a>
+              <Link href="/projekt">Detail projektu</Link>
+            </div>
           </div>
           <div
             className={`karta karta-robo ${poziceTrida(1)}`}
@@ -51,7 +53,9 @@ export default function Projects() {
           >
             <h3>A další...</h3>
             <p>Stále dělám i více projektů</p>
-            <a href="https://github.com/FudgeCZ">Další na GitHubu</a>
+            <div className="karta-akce">
+              <a href="https://github.com/FudgeCZ">Další na GitHubu</a>
+            </div>
           </div>
         </div>
       </Reveal>

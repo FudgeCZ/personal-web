@@ -1,11 +1,16 @@
+import Prezdivka from "./Prezdivka";
+
 export default function Hero() {
   return (
     <section id="domu">
       <h1>František Novák</h1>
+      <Prezdivka />
+      <div className="gradient-linka" />
       <h2>Junior Developer & Student PEF ČZU</h2>
+      <div className="gradient-linka" />
       <p className="podtitul">
-        Propojuji software s hardwarem. Vyvíjím desktopové aplikace a custom
-        herní tooling.
+        Propojuji software s hardwarem. Vyvíjím desktopové aplikace, webové
+        stránky a custom herní tooling.
       </p>
       <p className="seznam">Seznam</p>
       <ul>

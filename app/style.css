@@ -1,20 +1,29 @@
 :root {
-  --pozadi: rgb(33, 46, 59);
-  --text: antiquewhite;
+  --pozadi: rgb(20, 20, 20);
+  --text: rgb(240, 253, 255);
 
-  --header-barva: chocolate;
-  --header-pozadi: rgba(37, 35, 30, 0.6);
-  --header-hover: rgb(236, 215, 183);
+  --header-barva: rgb(65, 130, 228);
+  --header-pozadi: rgba(19, 49, 53, 0.562);
+  --header-hover: rgb(183, 221, 236);
+  --header-border: rgba(155, 111, 196, 0.486);
+  --mobile-hover: rgba(106, 159, 219, 0.212);
+  --logo-barva: linear-gradient(90deg, rgb(174, 59, 240), rgb(88, 172, 250));
+
+  --button-color: rgb(167, 233, 250);
+  --button-border: rgb(85, 173, 255);
+  --button-hover-color: rgba(120, 171, 248, 0.671);
+  --button-hover-border: rgb(97, 56, 243);
 
   --karty-border: rgba(0, 0, 0, 0.35);
   --karta-choco-pozadi: rgb(117, 60, 19);
   --karta-dalsi-pozadi: rgb(78, 78, 78);
-  --karta-robo-pozadi: rgb(148, 79, 30);
+  --karta-robo-pozadi: rgb(160, 29, 29);
 
-  --jmeno-barva: rgb(233, 179, 109);
-  --h2-barva: rgb(240, 200, 148);
-  --podtitul-barva: rgb(245, 220, 188);
-  --seznam-barva: rgb(255, 233, 204);
+  --jmeno-barva: linear-gradient(90deg, rgb(56, 231, 243), rgb(97, 56, 243));
+  --prezdivka-color: rgb(95, 255, 180);
+  --h2-barva: rgb(92, 112, 228);
+  --podtitul-barva: rgb(196, 139, 243);
+  --seznam-barva: rgb(186, 144, 253);
 }
 [data-theme="light"] {
   --pozadi: rgb(235, 221, 204);
@@ -22,16 +31,26 @@
 
   --header-pozadi: rgba(202, 182, 143, 0.6);
   --header-hover: rgb(95, 60, 8);
+  --header-barva: chocolate;
+  --header-border: rgb(196, 153, 111);
+  --mobile-hover: rgba(170, 113, 47, 0.6);
+  --logo-barva: rgb(201, 116, 20);
+
+  --button-color: rgb(207, 134, 60);
+  --button-border: rgb(231, 141, 50);
+  --button-hover-color: rgb(238, 173, 106);
+  --button-hover-border: rgb(241, 142, 42);
 
   --jmeno-barva: rgb(184, 109, 12);
+  --prezdivka-color: rgb(136, 93, 0);
   --h2-barva: rgb(211, 140, 47);
   --podtitul-barva: rgb(131, 96, 50);
   --seznam-barva: rgb(117, 90, 54);
 
   --karty-border: rgba(0, 0, 0, 0.65);
   --karta-choco-pozadi: rgb(148, 79, 30);
-  --karta-choco-text: rgb(255, 190, 106);
-  --karta-robo-pozadi: rgb(148, 79, 30);
+  --karta-choco-text: rgb(248, 203, 160);
+  --karta-robo-pozadi: rgb(187, 38, 38);
   --karta-robo-text: rgb(255, 190, 106);
   --karta-dalsi-pozadi: rgb(78, 78, 78);
   --karta-nic-text: rgb(207, 184, 141);
@@ -42,12 +61,45 @@ body {
   font-family: "Segoe UI", Arial, sans-serif;
 }
 h1 {
-  color: var(--jmeno-barva);
+  width: fit-content;
+  background-image: var(--jmeno-barva);
   font-size: 40px;
+  background-clip: text;
+  color: transparent;
+}
+[data-theme="light"] h1 {
+  background-image: none; /* žádné pozadí pod textem */
+  color: var(--jmeno-barva); /* a normální, neprůhledná barva */
+}
+.prezdivka {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 20px;
+  color: var(--prezdivka-color);
+}
+.kurzor {
+  animation: blik 1.1s steps(1) infinite;
+}
+@keyframes blik {
+  50% {
+    opacity: 0;
+  }
 }
 h2 {
   color: var(--h2-barva);
   font-size: 26px;
+}
+.gradient-linka {
+  height: 2px;
+  width: 600px; /* nebo 100% = přes celou šířku */
+  margin: 30px auto; /* mezery nad a pod + vycentrování */
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--h2-barva) 15%,
+    transparent 80%
+  );
+  box-shadow: 0 0 0px var(--h2-barva);
 }
 .podtitul {
   color: var(--podtitul-barva);
@@ -78,9 +130,12 @@ h2 {
   border: 3px solid var(--karty-border);
   transition:
     transform 0.6s,
+    filter 0.6s,
     background-color 0.4s,
     color 0.4s,
     border-color 0.4s;
+  display: flex;
+  flex-direction: column;
 }
 .karta-choco {
   background-color: var(--karta-choco-pozadi);
@@ -94,32 +149,47 @@ h2 {
   background-color: var(--karta-dalsi-pozadi);
   color: var(--karta-nic-text);
 }
+.karta-akce {
+  margin-top: auto; /* vzít si všechen volný prostor navrchu = odtlačit se dolů */
+  display: flex;
+  justify-content: space-between;
+}
+.karta-akce a {
+  align-self: flex-start;
+}
 
 .pozice-vpredu {
   transform: none;
   z-index: 2;
 }
 .pozice-vlevo {
-  transform: translateX(-92%) rotateY(35deg) rotateX(15deg);
-  scale: 0.85;
+  transform: translateX(-65%) rotateY(5deg) rotateX(15deg) rotateZ(-10deg);
+  scale: 0.8;
   z-index: 1;
 }
 .pozice-vpravo {
-  transform: translateX(92%) rotateY(-35deg) rotateX(15deg);
-  scale: 0.85;
+  transform: translateX(65%) rotateY(-5deg) rotateX(15deg) rotateZ(7deg);
+  scale: 0.8;
   z-index: 1;
 }
 .pozice-vlevo,
 .pozice-vpravo {
   cursor: pointer;
+  filter: brightness(0.55);
 }
 .pozice-vlevo:hover {
-  transform: translateX(-92%) rotateY(35deg) rotateX(5deg);
-  scale: 0.9;
+  transform: translateX(-80%) rotateY(10deg) rotateX(0deg) rotateZ(-10deg);
+  scale: 0.85;
+  filter: brightness(0.8);
 }
 .pozice-vpravo:hover {
-  transform: translateX(92%) rotateY(-35deg) rotateX(5deg);
-  scale: 0.9;
+  transform: translateX(80%) rotateY(-10deg) rotateX(0deg) rotateZ(10deg);
+  scale: 0.85;
+  filter: brightness(0.8);
+}
+.pozice-vlevo a,
+.pozice-vpravo a {
+  pointer-events: none;
 }
 
 @media (max-width: 950px) {
@@ -138,11 +208,16 @@ h2 {
   .pozice-vlevo,
   .pozice-vpravo {
     cursor: auto;
+    filter: brightness(1);
   }
   .pozice-vlevo:hover,
   .pozice-vpravo:hover {
     transform: none;
     scale: 1;
+  }
+  .pozice-vlevo a,
+  .pozice-vpravo a {
+    pointer-events: auto;
   }
 }
 
@@ -176,7 +251,7 @@ header {
   max-width: 1000px;
   margin: 12px auto;
   white-space: nowrap;
-  border: 1px solid rgb(196, 153, 111);
+  border: 1px solid var(--header-border);
 }
 nav {
   display: flex;
@@ -185,15 +260,21 @@ nav {
 .logo {
   transition: color 0.3s;
   font-size: 18px;
+  color: transparent;
+  background: var(--logo-barva);
+  background-clip: text;
+}
+[data-theme="light"] .logo {
+  background-image: none;
+  color: var(--logo-barva);
 }
 .logo:hover {
   color: var(--header-hover);
-  background-color: rgba(255, 145, 20, 0.1);
 }
 @media (max-width: 550px) {
   header {
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
     border-radius: 50px;
   }
   .logo,
@@ -201,11 +282,33 @@ nav {
     white-space: nowrap;
     border-radius: 999px;
     border: 1px solid rgba(180, 115, 49, 0.5);
+
     padding: 10px 20px;
   }
+
   nav {
-    gap: 40px;
+    gap: 25px;
   }
+  .logo:hover,
+  nav a:hover {
+    background-color: var(--mobile-hover);
+  }
+}
+@keyframes vjeti {
+  from {
+    transform: rotateY(-25deg);
+    opacity: 0.7;
+  }
+  to {
+    transform: rotateY(0);
+    opacity: 1;
+  }
+}
+
+.karty {
+  animation: vjeti linear both;
+  animation-timeline: view();
+  animation-range: entry 5% cover 30%;
 }
 #domu {
   display: flex;
@@ -225,6 +328,16 @@ nav {
     translate: 0 0;
   }
 }
+@keyframes nabeh-linka {
+  from {
+    opacity: 0;
+    translate: -100px 0px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
 #domu h1 {
   animation: nabeh 0.8s ease both;
   animation-delay: 0.05s;
@@ -232,6 +345,10 @@ nav {
 #domu h2 {
   animation: nabeh 0.8s ease both;
   animation-delay: 0.1s;
+}
+#domu .gradient-linka {
+  animation: nabeh-linka 1s ease-in-out;
+  animation-delay: 0.1;
 }
 #domu .podtitul {
   animation: nabeh 0.8s ease both;
@@ -252,22 +369,24 @@ nav {
   opacity: 1;
   translate: 0 0;
 }
-header button {
+header button,
+.karta-akce a {
   padding: 8px 10px;
   border-radius: 15px;
-  border: 1px solid rgb(231, 141, 50);
+  border: 1px solid var(--button-border);
   background-color: transparent;
-  color: rgb(207, 134, 60);
+  color: var(--button-color);
   cursor: pointer; /* ať je zřejmé, že je klikací */
   transition:
     background-color 0.3s,
     color 0.3s; /* tohle už znáš z kroku 14 */
+  text-decoration: none;
 }
-
-header button:hover {
-  background-color: rgb(238, 173, 106);
+header button:hover,
+.karta-akce a:hover {
+  background-color: var(--button-hover-color);
   color: rgb(33, 46, 59); /* převrácené barvy = klasický hover efekt */
-  border: 1px solid rgb(241, 142, 42);
+  border: 1px solid var(--button-hover-border);
 }
 
 body,
