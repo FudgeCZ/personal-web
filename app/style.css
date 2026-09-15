@@ -36,7 +36,7 @@
   --mobile-hover: rgba(170, 113, 47, 0.6);
   --logo-barva: rgb(201, 116, 20);
 
-  --button-color: rgb(207, 134, 60);
+  --button-color: rgb(241, 164, 86);
   --button-border: rgb(231, 141, 50);
   --button-hover-color: rgb(238, 173, 106);
   --button-hover-border: rgb(241, 142, 42);
@@ -113,8 +113,8 @@ h2 {
 
 .karty {
   position: relative; /* kotva — vůči ní se karty budou umisťovat */
-  max-width: 350px;
-  height: 240px; /* absolute děti výšku rodiče neovlivní, musíme ji dát ručně */
+  max-width: 420px;
+  height: 250px; /* absolute děti výšku rodiče neovlivní, musíme ji dát ručně */
   margin: 30px auto 0;
   perspective: 1000px; /* oko, znáš z E3 */
 }
@@ -192,12 +192,33 @@ h2 {
   pointer-events: none;
 }
 
-@media (max-width: 950px) {
+.linka-pln {
+  height: 5px;
+  max-width: 350px;
+  margin: 20px auto 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--jmeno-barva), var(--h2-barva));
+  transform-origin: left;
+  animation: plneni 5s linear forwards;
+}
+@keyframes plneni {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+.karusel:hover .linka-pln {
+  animation-play-state: paused; /* zamrzne přesně tam, kde je */
+}
+
+@media (max-width: 1120px) {
   .karta {
     position: static;
     transform: translateX(0) rotateY(0) rotateX(0);
     scale: 1;
-    max-width: 800px;
+    max-width: 80% fit-content;
   }
   .karty {
     height: auto;
@@ -214,10 +235,14 @@ h2 {
   .pozice-vpravo:hover {
     transform: none;
     scale: 1;
+    filter: none;
   }
   .pozice-vlevo a,
   .pozice-vpravo a {
     pointer-events: auto;
+  }
+  .linka-pln {
+    display: none;
   }
 }
 
@@ -246,7 +271,7 @@ header {
   top: 12px;
   border-radius: 999px;
   background-color: var(--header-pozadi);
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(8px);
   z-index: 1;
   max-width: 1000px;
   margin: 12px auto;
@@ -314,7 +339,7 @@ nav {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  max-width: 800px;
+  max-width: 1000px;
   margin: 40px auto;
 }
 
