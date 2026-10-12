@@ -1,3 +1,9 @@
+import {
+  GraduationCap,
+  Lightning,
+  MapPin,
+  MagnifyingGlass,
+} from "@phosphor-icons/react/dist/ssr";
 import Reveal from "@/components/Reveal";
 
 export default function About() {
@@ -5,7 +11,6 @@ export default function About() {
     <section className="section" id="o-mne">
       <div className="container">
         <Reveal>
-          <p className="kicker">O mně</p>
           <h2 className="section-title">Kdo jsem</h2>
           <p className="about-text">
             Jsem student informatiky na PEF ČZU s maturitním základem v
@@ -15,10 +20,21 @@ export default function About() {
             technických projektů, kde mohu stavět funkční řešení.
           </p>
           <ul className="about-facts">
-            <li>🎓 Informatika — PEF ČZU (1. ročník)</li>
-            <li>⚡ Mechanik-elektrotechnik — SOU a SOŠ Kladno Dubská</li>
-            <li>📍 Rakovník, Středočeský kraj</li>
-            <li>🔎 Hledám: junior pozice, stáže, technické projekty</li>
+            <li>
+              <GraduationCap size={15} aria-hidden /> Informatika, PEF ČZU
+              (1. ročník)
+            </li>
+            <li>
+              <Lightning size={15} aria-hidden /> Mechanik-elektrotechnik, SOU
+              a SOŠ Kladno Dubská
+            </li>
+            <li>
+              <MapPin size={15} aria-hidden /> Rakovník, Středočeský kraj
+            </li>
+            <li>
+              <MagnifyingGlass size={15} aria-hidden /> Hledám: junior pozice,
+              stáže, technické projekty
+            </li>
           </ul>
         </Reveal>
       </div>

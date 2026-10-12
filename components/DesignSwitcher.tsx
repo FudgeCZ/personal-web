@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { Palette } from "@phosphor-icons/react";
 
 const DESIGNS = [
   {
@@ -109,7 +110,7 @@ export default function DesignSwitcher() {
         aria-expanded={open}
         aria-label="Změnit vzhled webu"
       >
-        <span aria-hidden="true">🎨</span> {active.name}
+        <Palette size={15} aria-hidden /> {active.name}
       </button>
     </div>
   );

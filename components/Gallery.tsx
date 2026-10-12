@@ -19,7 +19,7 @@ const SHOTS = [
   },
   {
     src: "/assets/ServerDasboard.png",
-    caption: "Server dashboard — živé statistiky, konzole a hráči",
+    caption: "Server dashboard: živé statistiky, konzole a hráči",
     width: 1915,
     height: 1153,
   },
@@ -52,7 +52,6 @@ export default function Gallery() {
   return (
     <section className="section" id="galerie">
       <div className="container">
-        <p className="kicker">Galerie</p>
         <h2 className="section-title">ChocoModrinth v akci</h2>
         <Reveal className="gallery">
           {SHOTS.map((shot, i) => (

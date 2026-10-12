@@ -19,7 +19,6 @@ export default function Achievements() {
   return (
     <section className="section" id="souteze">
       <div className="container">
-        <p className="kicker">Soutěže &amp; ocenění</p>
         <h2 className="section-title">Robosoutěž FEL ČVUT</h2>
         <Reveal className="ach-grid">
           {RESULTS.map((r) => (

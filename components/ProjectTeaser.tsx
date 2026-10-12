@@ -7,7 +7,6 @@ export default function ProjectTeaser() {
     <section className="section" id="projekt">
       <div className="container">
         <Reveal>
-          <p className="kicker">Aktuální projekty</p>
           <h2 className="section-title">Co stavím</h2>
         </Reveal>
         <Reveal>
@@ -28,7 +27,7 @@ export default function ProjectTeaser() {
                   <div>
                     <h3 className="teaser-title">ChocoModrinth</h3>
                     <p className="teaser-tag">
-                      Custom Minecraft Launcher · září 2026 – současnost
+                      Custom Minecraft Launcher, od září 2026
                     </p>
                   </div>
                 </div>
@@ -66,7 +65,7 @@ export default function ProjectTeaser() {
               >
                 <Image
                   src="/assets/MainMenu.png"
-                  alt="Náhled ChocoModrinthu — hlavní menu"
+                  alt="Náhled ChocoModrinthu, hlavní menu"
                   width={1917}
                   height={1150}
                   sizes="(max-width: 900px) 92vw, 440px"

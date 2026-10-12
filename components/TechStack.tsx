@@ -20,7 +20,6 @@ export default function TechStack() {
   return (
     <section className="section" id="stack">
       <div className="container">
-        <p className="kicker">Technický stack</p>
         <h2 className="section-title">S čím pracuji</h2>
         <div className="table-wrap card">
           <Reveal>

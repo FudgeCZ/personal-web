@@ -8,12 +8,10 @@ export default function SiteHeader() {
         <nav className="nav-links" aria-label="Hlavní navigace">
           <a href="/#o-mne">O mně</a>
           <a href="/chocomodrinth">Projekt</a>
+          <a href="/360">360°</a>
           <a href="/#souteze">Soutěže</a>
           <a href="/#stack">Stack</a>
         </nav>
-        <a href="/#kontakt" className="btn btn-outline nav-cta">
-          Kontakt
-        </a>
       </div>
     </header>
   );
