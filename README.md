@@ -46,6 +46,16 @@ public/assets/   # logo + screenshoty ChocoModrinthu
 
 Texty se upravují přímo v jednotlivých komponentách v `components/`.
 
+## Podstránka 360° fotky
+
+`/360` — galerie a sdílení 360° panoramat. Fotka se vyfotí panoramatickým režimem telefonu (iPhone: *Panorama*, Android: *Photo Sphere*), nahraje na stránku a dostane vlastní odkaz `/360/<nazev>`, který se dá sdílet. Prohlížeč (photo-sphere-viewer) funguje na mobilu i PC, na mobilu umí i gyroskop. Nahrávání chrání PIN, experimentálně umí stránka i vyfotit sérii snímků kamerou a slepit je v prohlížeči.
+
+### Nasazení 360° (jednorázové nastavení)
+
+1. **Vercel Blob** — v dashboardu projektu: *Storage → Create Database → Blob* a připojit k projektu. Tím se automaticky nastaví proměnná `BLOB_READ_WRITE_TOKEN` (aktivní po dalším deployi). Bez toho funguje prohlížeč a galerie, ale ne nahrávání.
+2. **PIN na nahrávání** — v dashboardu: *Settings → Environment Variables* přidat `PANO_PIN` s vlastním tajným kódem.
+3. **Lokálně** — `vercel link` a pak `vercel env pull .env.local` stáhne token; PIN doplň do `.env.local` (soubor je v `.gitignore`, necomituje se).
+
 ## Nasazení na Vercel
 
-Staticky prerenderovaný Next.js projekt — stačí v [Vercelu](https://vercel.com) importovat tento repozitář (Vercel sám detekuje Next.js, bez konfigurace).
+Staticky prerenderovaný Next.js projekt — stačí v [Vercelu](https://vercel.com) importovat tento repozitář (Vercel sám detekuje Next.js, bez konfigurace). Stránka `/360` se renderuje dynamicky (výpis galerie z Blobu).

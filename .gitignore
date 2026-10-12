@@ -7,9 +7,15 @@ out/
 next-env.d.ts
 *.tsbuildinfo
 
+# tajné klíče a hesla (nikdy necomitovat!)
+.env
+.env.local
+.env*.local
+
 # source materials (not part of the website repo)
 ChocoModrinth/
 .video_agent/
+.v2c/
 .zcode/
 learning/
 
